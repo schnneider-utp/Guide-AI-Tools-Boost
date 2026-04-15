@@ -1,64 +1,64 @@
-# Model Context Protocol (MCP) y Servidores MCP
+# Model Context Protocol (MCP) and MCP Servers
 
-El **Model Context Protocol (MCP)** es un estándar de código abierto diseñado para conectar aplicaciones de Inteligencia Artificial (IA) con sistemas externos de manera segura y estructurada. 
+The **Model Context Protocol (MCP)** is an open-source standard designed to connect Artificial Intelligence (AI) applications with external systems in a secure and structured way.
 
-De manera figurada, **MCP actúa como un puerto "USB-C" para las aplicaciones de IA**. Así como un puerto USB-C proporciona una forma estandarizada de conectar diversos dispositivos electrónicos sin preocuparse por los conectores específicos de cada fabricante, MCP ofrece una vía estandarizada para que los modelos de IA accedan a fuentes de datos, herramientas y flujos de trabajo externos.
-
----
-
-## 🏛️ ¿Quién lo creó y por qué?
-
-El protocolo fue impulsado inicialmente por **Anthropic** (los creadores de Claude) y luego fue liberado como un estándar de código abierto, apoyado por una amplia coalición de la industria tecnológica.
-
-### El problema: La fragmentación
-Antes de MCP, cada vez que un desarrollador o una empresa quería conectar un modelo de lenguaje (LLM) a una herramienta externa (por ejemplo, una base de datos local, Slack, GitHub o un calendario), tenía que escribir integraciones personalizadas y específicas para ese LLM particular. Si querías que ChatGPT, Claude y un modelo de código abierto local se conectaran a tu base de datos, debías mantener tres integraciones distintas. Esto resultaba en un ecosistema fragmentado, difícil de escalar y complejo de mantener.
-
-### La solución: Estandarización
-El objetivo principal de crear MCP fue solucionar esta fragmentación mediante la premisa de **"escribir una vez, integrar en todas partes"**. 
-Al utilizar un protocolo estándar:
-1. **Los desarrolladores de herramientas** solo necesitan construir un único "Servidor MCP" para su servicio.
-2. **Las aplicaciones de IA** solo necesitan implementar el "Cliente MCP" una vez.
-3. Inmediatamente, cualquier aplicación de IA compatible puede comunicarse con cualquier herramienta que tenga un servidor MCP.
+Figuratively speaking, **MCP acts as a "USB-C" port for AI applications**. Just as a USB-C port provides a standardized way to connect various electronic devices without worrying about manufacturer-specific connectors, MCP offers a standardized way for AI models to access data sources, tools, and external workflows.
 
 ---
 
-## ⚙️ Arquitectura: Cliente MCP vs. Servidor MCP
+## 🏛️ Who created it and why?
 
-La arquitectura de MCP se basa en un modelo cliente-servidor muy simple pero poderoso:
+The protocol was initially driven by **Anthropic** (the creators of Claude) and was later released as an open-source standard, backed by a broad coalition of the tech industry.
 
-### 1. El Cliente MCP (La Aplicación de IA)
-Es la aplicación o entorno donde el usuario interactúa con la IA. Ejemplos de clientes MCP son **Claude**, **ChatGPT**, herramientas de desarrollo como **Visual Studio Code (vía Copilot)**, **Cursor**, entre otros. El cliente es el que "pide" la información o la ejecución de una acción.
+### The problem: Fragmentation
+Before MCP, every time a developer or company wanted to connect a large language model (LLM) to an external tool (e.g., a local database, Slack, GitHub, or a calendar), they had to write custom integrations specific to that particular LLM. If you wanted ChatGPT, Claude, and a local open-source model to connect to your database, you had to maintain three different integrations. This resulted in a fragmented ecosystem, difficult to scale and complex to maintain.
 
-### 2. El Servidor MCP (El Puente a los Datos)
-El **Servidor MCP** es un programa ligero que se ejecuta de forma local o remota. Su única función es exponer de manera segura recursos específicos de una herramienta o base de datos hacia el Cliente MCP. 
-
-**¿Qué puede exponer un Servidor MCP?**
-- **Fuentes de datos:** Archivos locales, bases de datos PostgreSQL/SQLite, wikis internas corporativas.
-- **Herramientas (Acciones):** Ejecutar búsquedas web, compilar código, interactuar con la API de GitHub (aprobar PRs, leer issues), calculadoras.
-- **Prompts Especializados:** Plantillas de instrucciones específicas para tareas complejas.
-
-Por ejemplo, si tienes un Servidor MCP de Google Calendar ejecutándose, el Cliente MCP (tu IA en el editor de código) puede preguntarle al servidor: *"¿Qué reuniones tiene el usuario hoy?"*, y el servidor MCP consultará la API de Google y le devolverá la respuesta al modelo en un formato estándar.
+### The solution: Standardization
+The main goal of creating MCP was to solve this fragmentation through the premise of **"write once, integrate everywhere"**.
+By using a standard protocol:
+1. **Tool developers** only need to build a single "MCP Server" for their service.
+2. **AI applications** only need to implement the "MCP Client" once.
+3. Immediately, any compatible AI application can communicate with any tool that has an MCP server.
 
 ---
 
-## 💡 ¿Por qué es importante?
+## ⚙️ Architecture: MCP Client vs. MCP Server
 
-* **Para los desarrolladores:** Reduce enormemente el tiempo y la complejidad de construir agentes de IA conectados al mundo real.
-* **Para los usuarios finales:** Elimina la barrera de "copiar y pegar". Las IAs pueden leer el contexto directamente desde sus herramientas (Jira, Notion, Figma) y realizar acciones en su nombre con permisos controlados.
-* **Privacidad y Control:** Los servidores MCP permiten al usuario controlar exactamente qué datos se exponen al modelo de lenguaje, un aspecto crítico en entornos corporativos.
+MCP's architecture is based on a very simple but powerful client-server model:
+
+### 1. The MCP Client (The AI Application)
+It is the application or environment where the user interacts with the AI. Examples of MCP clients are **Claude**, **ChatGPT**, development tools like **Visual Studio Code (via Copilot)**, **Cursor**, among others. The client is the one that "requests" the information or the execution of an action.
+
+### 2. The MCP Server (The Bridge to Data)
+The **MCP Server** is a lightweight program that runs locally or remotely. Its sole function is to securely expose specific resources of a tool or database to the MCP Client.
+
+**What can an MCP Server expose?**
+- **Data sources:** Local files, PostgreSQL/SQLite databases, internal corporate wikis.
+- **Tools (Actions):** Execute web searches, compile code, interact with the GitHub API (approve PRs, read issues), calculators.
+- **Specialized Prompts:** Prompt templates designed for complex tasks.
+
+For example, if you have a Google Calendar MCP Server running, the MCP Client (your AI in the code editor) can ask the server: *"What meetings does the user have today?"*, and the MCP server will query the Google API and return the answer to the model in a standard format.
 
 ---
 
-## 📚 Recursos y Documentación Oficial
+## 💡 Why is it important?
 
-Para profundizar en el desarrollo y la implementación técnica de MCP, puedes consultar las siguientes fuentes oficiales:
+* **For developers:** Greatly reduces the time and complexity of building AI agents connected to the real world.
+* **For end users:** Eliminates the "copy and paste" barrier. AIs can read context directly from their tools (Jira, Notion, Figma) and perform actions on their behalf with controlled permissions.
+* **Privacy and Control:** MCP servers allow the user to control exactly what data is exposed to the language model, a critical aspect in corporate environments.
 
-* **Documentación Oficial (Sitio Web):** [Model Context Protocol - Introducción](https://modelcontextprotocol.io/docs/getting-started/intro)
-* **Repositorio en GitHub:** [Organización Model Context Protocol](https://github.com/modelcontextprotocol) - Aquí se publican los avances, SDKs oficiales (en TypeScript, Python, etc.) y servidores comunitarios de código abierto.
+---
 
-### 🎥 Videos Recomendados
+## 📚 Official Resources and Documentation
 
-Si prefieres aprender de forma visual o reforzar los conceptos, te recomendamos los siguientes videos:
+To dive deeper into the development and technical implementation of MCP, you can consult the following official sources:
 
-* **[Explicación de MCP y cómo utilizarlo (En Español)](https://www.youtube.com/watch?v=wnHczxwukYY&t=3311s):** Un recurso educativo bastante detallado, en nuestro idioma, para entender el contexto y su implementación práctica.
-* **[Introducción al Model Context Protocol (En Inglés)](https://www.youtube.com/watch?v=7j_NE6Pjv-E):** Una visión general que explora de qué trata MCP y por qué está cambiando la forma en que conectamos agentes de IA.
+* **Official Documentation (Website):** [Model Context Protocol - Introduction](https://modelcontextprotocol.io/docs/getting-started/intro)
+* **GitHub Repository:** [Model Context Protocol Organization](https://github.com/modelcontextprotocol) - Here, progress, official SDKs (in TypeScript, Python, etc.), and community open-source servers are published.
+
+### 🎥 Recommended Videos
+
+If you prefer to learn visually or reinforce concepts, we recommend the following videos:
+
+* **[Explanation of MCP and how to use it (In Spanish)](https://www.youtube.com/watch?v=wnHczxwukYY&t=3311s):** A quite detailed educational resource, in our language, to understand the context and its practical implementation.
+* **[Introduction to the Model Context Protocol (In English)](https://www.youtube.com/watch?v=7j_NE6Pjv-E):** An overview that explores what MCP is about and why it is changing the way we connect AI agents.

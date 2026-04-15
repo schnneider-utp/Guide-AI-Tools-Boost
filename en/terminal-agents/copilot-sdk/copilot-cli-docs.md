@@ -1,33 +1,33 @@
 # 🤖 GitHub Copilot CLI / SDK
 
-Esta herramienta es una utilidad de línea de comandos diseñada para ayudar a los desarrolladores a construir, aprender y recordar comandos complejos de shell directamente en su entorno de trabajo diario ("cmd", "PowerShell", "Bash", "Zsh"). Su objetivo es reducir el cambio de contexto, permitiendo consultar herramientas, traducir declaraciones naturales a comandos CLI y explicar errores de salida estándar directamente en la terminal.
+This tool is a command-line utility designed to help developers build, learn, and remember complex shell commands directly in their daily workspace ("cmd", "PowerShell", "Bash", "Zsh"). Its goal is to reduce context switching, allowing you to query tools, translate natural statements to CLI commands, and explain standard output errors directly in the terminal.
 
-> 💰 **Costo y Beneficios para Estudiantes:** Ten en cuenta que GitHub Copilot es una herramienta de pago. Sin embargo, si eres estudiante, puedes aplicar al [GitHub Student Developer Pack](https://education.github.com/pack) para obtener acceso gratuito a Copilot y a muchas otras herramientas de desarrollo esenciales.
+> 💰 **Cost and Benefits for Students:** Note that GitHub Copilot is a paid tool. However, if you are a student, you can apply to the [GitHub Student Developer Pack](https://education.github.com/pack) to get free access to Copilot and many other essential development tools.
 
-**Recursos Oficiales:**
-- 📘 [Documentación Oficial y Guías de Uso](https://github.com/features/copilot/cli?locale=es-419)
-- 💻 [Repositorio del SDK (GitHub)](https://github.com/github/copilot-sdk)
-- 🎥 [Video Educativo sobre Copilot CLI (en Español)](https://www.youtube.com/watch?v=XpQ7uUXuPHg)
-- 🎥 [Video Educativo sobre Copilot CLI (en Inglés)](https://www.youtube.com/watch?v=v8dr7QcIiLU)
+**Official Resources:**
+- 📘 [Official Documentation and Usage Guides](https://github.com/features/copilot/cli?locale=en)
+- 💻 [SDK Repository (GitHub)](https://github.com/github/copilot-sdk)
+- 🎥 [Educational Video on Copilot CLI (in Spanish)](https://www.youtube.com/watch?v=XpQ7uUXuPHg)
+- 🎥 [Educational Video on Copilot CLI (in English)](https://www.youtube.com/watch?v=v8dr7QcIiLU)
 
-### **Instalación:**
-Para instalar el paquete distribuido en Node, es aconsejable evitar conflictos de permisos de administrador con instalaciones globales. La mejor práctica es contar con `nvm`:
+### **Installation:**
+To install the package distributed on Node, it is advisable to avoid administrator permission conflicts with global installations. The best practice is to use `nvm`:
 
 ```bash
-# Instalación global a través de NPM (versión > 16.x)
+# Global installation via NPM (version > 16.x)
 npm install -g @github/copilot
 ```
 
-### **Autenticación en la Terminal:**
+### **Terminal Authentication:**
 ```bash
 github-copilot-cli auth
 ```
 
 ---
 
-## **¿Cómo Iniciar el Agente?**
+## **How to Start the Agent?**
 
-Una vez autenticado, para levantar la interfaz y comenzar a interactuar con el asistente en la ruta actual de tu proyecto, simplemente ejecuta:
+Once authenticated, to launch the interface and start interacting with the assistant in the current path of your project, simply run:
 
 ```bash
 copilot
@@ -35,21 +35,21 @@ copilot
 
 ---
 
-## **Modos de Operación**
+## **Operation Modes**
 
-Al ejecutar el SDK del agente en tu terminal, puedes transicionar entre diferentes niveles de autonomía para controlar cómo la IA interviene en tu proyecto:
+By running the agent's SDK in your terminal, you can transition between different levels of autonomy to control how the AI intervenes in your project:
 
-1. **Modo Inicial / Interactivo (Default):** Es el modo con el que la herramienta arranca por defecto. En este nivel, el agente mantiene un diálogo tipo chat paso a paso contigo, esperando instrucciones directas y confirmaciones manuales antes de alterar scripts o ejecutar código.
-2. **Modo PLAN:** En este modo de diseño, el agente evalúa tu petición, analiza tu entorno (archivos, logs) y genera una estrategia detallada paso a paso sobre cómo resolverá el problema. Es crucial para auditar cognitivamente a la IA antes de darle luz verde a modificar tu arquitectura.
-3. **Modo Autopilot (Autopiloto):** El nivel de mayor autonomía. Una vez que se confía en el contexto provisto, el agente toma las riendas para ejecutar comandos, saltar entre carpetas, crear archivos o instalar dependencias de manera continua, limitando la necesidad de que apruebes cada acción por separado.
+1. **Initial / Interactive Mode (Default):** This is the mode the tool starts with by default. At this level, the agent maintains a step-by-step chat-like dialogue with you, waiting for direct instructions and manual confirmations before altering scripts or executing code.
+2. **PLAN Mode:** In this design mode, the agent evaluates your request, analyzes your environment (files, logs), and generates a detailed step-by-step strategy on how it will solve the problem. It is crucial for cognitively auditing the AI before giving it the green light to modify your architecture.
+3. **Autopilot Mode:** The level of greatest autonomy. Once the provided context is trusted, the agent takes the reins to execute commands, jump between folders, create files, or install dependencies continuously, limiting the need for you to approve each action separately.
 
 ---
 
-## **Comandos Interactivos y Skills**
+## **Interactive Commands and Skills**
 
-Lo fundamental en el uso del SDK y de las sesiones de agente no es fijarse en ejecutar banderas de comandos en solitario, sino en comprender cómo invocar herramientas de contexto dentro de la sesión interactiva del modelo, usando barras diagonales (`/`):
+The fundamental thing when using the SDK and agent sessions is not to focus on executing command flags alone, but on understanding how to invoke context tools within the model's interactive session, using forward slashes (`/`):
 
-- `/skills`: Permite listar o invocar las "habilidades" (skills) disponibles que tiene el agente (por ejemplo, buscar en Github, leer archivos del Workspace, consultar documentación, etc.).
-- `/help`: Muestra la ayuda general del entorno y qué otras intenciones de barra diagonal están habilitadas en tu versión actual del CLI.
+- `/skills`: Allows you to list or invoke available "skills" that the agent has (for example, search GitHub, read Workspace files, consult documentation, etc.).
+- `/help`: Shows the general help of the environment and what other slash intentions are enabled in your current CLI version.
 
-> **Nota de Aprendizaje 💡**: Antes de confirmar y ejecutar un comando generado en modo *Suggest*, acostumbra a pedirle al CLI que explique la propuesta. Comprender qué hace cada parámetro evitará que corras instrucciones destructivas en tu sistema anfitrión por accidente.
+> **Learning Note 💡**: Before confirming and executing a command generated in *Suggest* mode, make it a habit to ask the CLI to explain the proposal. Understanding what each parameter does will prevent you from running destructive instructions on your host system by accident.

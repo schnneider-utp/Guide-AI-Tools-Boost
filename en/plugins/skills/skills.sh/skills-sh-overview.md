@@ -1,39 +1,39 @@
-# Ecosistema y CLI: skills.sh
+# Ecosystem and CLI: skills.sh
 
-A medida que el concepto de "Skills" (habilidades estructuradas en archivos Markdown para guiar a las IAS) cobró popularidad, surgió una nueva fricción: **¿Cómo compartimos y gestionamos estas habilidades entre distintos equipos, proyectos y herramientas de IA?**
+As the concept of "Skills" (structured abilities in Markdown files to guide AIs) gained popularity, a new friction emerged: **How do we share and manage these skills across different teams, projects, and AI tools?**
 
-Aquí es donde entra [**skills.sh**](https://skills.sh/), una iniciativa impulsada por Vercel Labs. Se trata de un ecosistema abierto y una herramienta de línea de comandos (CLI) diseñada para descubrir, instalar y gestionar "Agent Skills" (Habilidades de Agente) de forma estandarizada.
-
----
-
-## 🌍 ¿Qué es skills.sh?
-
-**skills.sh** funciona como un "gestor de paquetes" (similar a `npm` o `pip`), pero exclusivo para directrices de inteligencia artificial. A través de este sistema, puedes instalar conocimientos empaquetados directamente desde repositorios de GitHub hacia tu entorno local.
-
-En lugar de que cada programador tenga que redactar a mano un archivo `SKILL.md` para explicarle a su agente de IA cómo configurar bases de datos o cómo estructurar componentes en React, puede simplemente descargar una "Skill" oficial elaborada por los propios creadores de dicha tecnología o por la comunidad.
-
-### Características Principales:
-1. **Instalación Sencilla:** A través de comandos en la terminal (ej: `npx skills add <repositorio>`), descargas instantáneamente los archivos de conocimiento.
-2. **Soporte Multi-Agente:** Las Skills descargadas a través de esta CLI son compatibles con una gran cantidad de agentes de código (GitHub Copilot, Cursor, Claude Code, Windsurf, OpenCode, entre casi 40 más). La CLI detecta qué IA estás usando y configura los archivos en la ruta correcta.
-3. **Ámbito de Instalación:**
-   - **Global (`-g`):** La habilidad se guarda en tu sistema operativo y tu agente la recordará en todos tus proyectos.
-   - **Por Proyecto:** La habilidad se guarda dentro de una carpeta oculta (como `.agents/skills/`) en tu proyecto actual, compartiéndose fácilmente con tu equipo a través del control de versiones (Git).
+This is where [**skills.sh**](https://skills.sh/) comes in, an initiative driven by Vercel Labs. It is an open ecosystem and a command-line interface (CLI) tool designed to discover, install, and manage "Agent Skills" in a standardized way.
 
 ---
 
-## 🛠️ ¿Cómo funciona en la práctica?
+## 🌍 What is skills.sh?
 
-Imagina que estás comenzando un proyecto con **React** y **Vercel**, y quieres que tu agente local de IA programe usando las mejores prácticas de rendimiento, sin alucinar con formas anticuadas de escribir código.
+**skills.sh** works like a "package manager" (similar to `npm` or `pip`), but exclusively for artificial intelligence guidelines. Through this system, you can install packaged knowledge directly from GitHub repositories into your local environment.
 
-En tu terminal simplemente ejecutarías:
+Instead of each programmer having to handwrite a `SKILL.md` file to explain to their AI agent how to configure databases or how to structure components in React, they can simply download an official "Skill" created by the creators of that technology themselves or by the community.
+
+### Key Features:
+1. **Easy Installation:** Through terminal commands (e.g., `npx skills add <repository>`), you instantly download knowledge files.
+2. **Multi-Agent Support:** Skills downloaded through this CLI are compatible with a large number of coding agents (GitHub Copilot, Cursor, Claude Code, Windsurf, OpenCode, among nearly 40 others). The CLI detects which AI you are using and configures the files in the correct path.
+3. **Installation Scope:**
+   - **Global (`-g`):** The skill is saved on your operating system and your agent will remember it across all your projects.
+   - **Per Project:** The skill is saved inside a hidden folder (like `.agents/skills/`) in your current project, easily shared with your team through version control (Git).
+
+---
+
+## 🛠️ How does it work in practice?
+
+Imagine you are starting a project with **React** and **Vercel**, and you want your local AI agent to program using best performance practices, without hallucinating outdated ways of writing code.
+
+In your terminal you would simply execute:
 ```bash
 npx skills add vercel-labs/agent-skills --skill vercel-react-best-practices
 ```
 
-Con ese solo comando:
-1. El sistema se conecta al repositorio y extrae explícitamente el archivo de conocimiento de "mejores prácticas de React".
-2. Lo instala en tu entorno local.
-3. Inmediatamente, la IA dentro de tu editor de código (por ejemplo, Copilot Chat o Cursor) leerá esa habilidad y empezará a aplicarla cada vez que le pidas crear un componente.
+With that single command:
+1. The system connects to the repository and explicitly extracts the "React best practices" knowledge file.
+2. It installs it in your local environment.
+3. Immediately, the AI inside your code editor (for example, Copilot Chat or Cursor) will read that skill and start applying it every time you ask it to create a component.
 
 ---
 
@@ -49,18 +49,18 @@ Al descargar una Skill creada por la comunidad, estás introduciendo literalment
 
 ---
 
-## �📚 Recursos y Referencias Oficiales
+## 📚 Official Resources and References
 
-Para explorar el directorio de habilidades públicas o revisar el código fuente de esta herramienta, visita:
+To explore the public skills directory or review the source code of this tool, visit:
 
-* 📦 **Repositorio en GitHub:** [vercel-labs/skills](https://github.com/vercel-labs/skills)
-* 🌐 **Directorio Web Oficial:** [skills.sh](https://skills.sh/)
+* 📦 **GitHub Repository:** [vercel-labs/skills](https://github.com/vercel-labs/skills)
+* 🌐 **Official Web Directory:** [skills.sh](https://skills.sh/)
 
 > *"The open agent skills ecosystem."*
 
-### 🎥 Videos Recomendados
+### 🎥 Recommended Videos
 
-Para ver implementaciones en vivo y entender mejor el impacto de `skills.sh`, te sugerimos estos recursos en video:
+To see live implementations and better understand the impact of `skills.sh`, we suggest these video resources:
 
-* **[Cómo potenciar a tu Agente IA con Skills (En Español)](https://www.youtube.com/watch?v=_iVeYCRpH7w):** Guía práctica en nuestro idioma que muestra cómo instalar y aprovechar este ecosistema en tus proyectos de desarrollo.
-* **[Introducción y Demostración de skills.sh (En Inglés)](https://www.youtube.com/watch?v=rcRS8-7OgBo):** Una excelente demostración sobre el ecosistema abierto y cómo la gestión centralizada de Skills mejora la eficiencia del desarrollador.
+* **[How to power up your AI Agent with Skills (In Spanish)](https://www.youtube.com/watch?v=_iVeYCRpH7w):** A practical guide in our language showing how to install and leverage this ecosystem in your development projects.
+* **[Introduction and Demonstration of skills.sh (In English)](https://www.youtube.com/watch?v=rcRS8-7OgBo):** An excellent demonstration of the open ecosystem and how centralized Skills management improves developer efficiency.

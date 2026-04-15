@@ -1,45 +1,45 @@
-# 🗃️ El Estándar Web: `llms.txt`
+# 🗃️ The Web Standard: `llms.txt`
 
-A la hora de integrar IAs con plataformas que están documentadas en sitios web, los ingenieros se encontraron con una pared: el HTML moderno está lleno de componentes innecesarios, estilos (`CSS`), barras laterales de navegación e interactividad masiva (`JavaScript`). Todo esto confunde a un modelo de texto y gasta su ventana de tokens inútilmente intentando "leer" la página.
+When integrating AIs with platforms documented on websites, engineers hit a wall: modern HTML is full of unnecessary components, styles (`CSS`), navigation sidebars, and massive interactivity (`JavaScript`). All of this confuses a text model and wastes its token window uselessly trying to "read" the page.
 
-Aquí es donde entra en juego la estandarización mediante el uso de archivos **`llms.txt`**.
-
----
-
-## 🏛️ ¿Qué es, quién lo propuso y por qué?
-
-El concepto fue propuesto y popularizado a lo largo del año 2024 por comunidades enfocadas en IA Open Source, destacándose fuertemente la organización **Answer.AI** y teóricos defensores del acceso universal de la IA.
-
-### El Propósito
-Inspirándose en el histórico `robots.txt` (que le decía a los buscadores de Google de los años 90 qué carpetas no debía indexar), el `llms.txt` hace algo equivalente para la época de los LLMs.
-
-En esencia, la propuesta sugiere que cualquier sitio web (por ejemplo, la documentación de *React* o *Tailwind*), deje expuesto en su ruta principal un archivo llamado `llms.txt`. 
-Este archivo debe contener texto plano formateado estrictamente en **Markdown**, resumiendo al máximo todas las API, esquemas básicos de uso y conceptos, removiendo todo el "ruido visual" de la web tradicional.
-
-De este modo, cuando un desarrollador le pide a la IA: *"Léete la documentación actualizada de Tailwind en tailwindcss.com e impleméntalo"*, la IA, en vez de leer todo el sitio web HTML, va directamente a descargar `https://tailwindcss.com/llms.txt` e ingiere los conocimientos en una fracción de segundo.
+This is where standardization via the use of **`llms.txt`** files comes into play.
 
 ---
 
-## ⚙️ Uso a nivel de Arquitectura
+## 🏛️ What is it, who proposed it, and why?
 
-El paradigma establece que este archivo se consolida y despacha estáticamente, debiendo estar obligatoriamente alojado y ser servido desde la **raíz del dominio público** de un sitio web.
+The concept was proposed and popularized throughout 2024 by communities focused on Open Source AI, strongly highlighting the **Answer.AI** organization and theoretical defenders of universal AI access.
 
-No contiene lógica de aplicación de back-end; se expone al cliente final y principalmente a constructores de bots (*Agent web scrapers*).
+### The Purpose
+Inspired by the historic `robots.txt` (which told 90s Google search engines which folders not to index), the `llms.txt` does something equivalent for the LLM era.
 
-### Ejemplo de Árbol de Directorios del Servidor Web:
+In essence, the proposal suggests that any website (for example, the documentation for *React* or *Tailwind*), exposes at its main path a file named `llms.txt`. 
+This file must contain plain text strictly formatted in **Markdown**, summarizing all APIs, basic usage schemas, and concepts to the maximum, removing all the "visual noise" of the traditional web.
+
+In this way, when a developer asks the AI: *"Read the updated Tailwind documentation at tailwindcss.com and implement it"*, the AI, instead of reading the entire HTML website, goes directly to download `https://tailwindcss.com/llms.txt` and ingests the knowledge in a fraction of a second.
+
+---
+
+## ⚙️ Use at the Architecture Level
+
+The paradigm establishes that this file is consolidated and dispatched statically, and must definitively be hosted and served from the **public domain root** of a website.
+
+It does not contain back-end application logic; it is exposed to the end client and primarily to bot builders (*Agent web scrapers*).
+
+### Web Server Directory Tree Example:
 
 ```text
-/tu-proyecto-documentacion
+/your-documentation-project
 ├── public/
 │   ├── css/
-│   │   └── estilos-del-sitio.css
-│   ├── index.html                 <-- (Para lectura humana)
+│   │   └── site-styles.css
+│   ├── index.html                 <-- (For human reading)
 │   ├── favicon.ico
-│   ├── robots.txt                 <-- (Para scrapers clásicos como GoogleBot)
-│   └── llms.txt                   <-- (Para consumo automatizado de asistentes de IA)
+│   ├── robots.txt                 <-- (For classic scrapers like GoogleBot)
+│   └── llms.txt                   <-- (For automated consumption by AI assistants)
 ├── src/
 └── package.json
 ```
 
-**Flujo de funcionamiento:**
-Un "Crawler" de IA que navega hasta tu sitio web o servicio lo primero que hace es ejecutar una simple petición `GET /llms.txt`. Si existe, ignora el parseo del formato HTML (`index.html`) y simplemente absorbe el Markdown ultracondensado, ahorrando tiempo de cómputo y mejorando radicalmente la eficacia de las respuestas que brinda a los usuarios que usen tu API o librería.
+**Operating Flow:**
+When an AI "Crawler" navigates to your website or service, the first thing it does is execute a simple `GET /llms.txt` request. If it exists, it ignores parsing the HTML format (`index.html`) and simply absorbs the ultra-condensed Markdown, saving compute time and radically improving the effectiveness of the answers it provides to users using your API or library.

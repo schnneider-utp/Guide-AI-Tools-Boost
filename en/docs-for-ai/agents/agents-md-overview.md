@@ -1,41 +1,41 @@
-# 📝 Reglas de Proyecto: `.agents.md` e `.instructions.md`
+# 📝 Project Rules: `.agents.md` and `.instructions.md`
 
-Mientras que `llms.txt` se ocupa de facilitar la lectura de la documentación pública en la web, surge otra necesidad internamente en los equipos de desarrollo: **alinear la inteligencia artificial embebida en el editor (IDE) a la arquitectura de su proyecto privado.**
+While `llms.txt` focuses on facilitating the reading of public documentation on the web, another need arises internally within development teams: **aligning the artificial intelligence embedded in the editor (IDE) with the architecture of their private project.**
 
-Para ello, nace el estándar de archivos de configuración local como `.agents.md` (y su variante `.instructions.md`), una solución unificada para que cualquier agente lea el contexto.
-
----
-
-## 🏛️ ¿Quién lo propuso y por qué?
-
-Esta metodología no fue propuesta mediante un estándar web universal, sino impulsada "de facto" por los propios fabricantes de IDEs impulsados por IA (como **GitHub Copilot, Cursor, Windsurf y Devin**).
-
-### El Problema
-Por defecto, si le pides a una IA en el editor *"crea un controlador de autenticación"*, generará código basándose en el estándar genérico que aprendió de sus datos de entrenamiento. Sin embargo, en tu empresa quizás exijan el uso de un framework en particular (ej. *NestJS con inyección de dependencias*), el uso exclusivo de `fetch` y no `axios`, o una jerarquía de carpetas atípica.
-
-### La Solución
-Se estandarizó la práctica de crear "notas ancladas" o archivos de "System Prompt" guardados junto con el código (en el repositorio), de forma que cualquier programador del equipo, al abrir el proyecto con su IA, fuerce al agente a leer las reglas de la casa y acatar dichas convenciones.
+For this, the standard of local configuration files like `.agents.md` (and its variant `.instructions.md`) was born, a unified solution for any agent to read context.
 
 ---
 
-## ⚙️ Uso a nivel de Arquitectura
+## 🏛️ Who proposed it and why?
 
-Su implementación es sumamente sencilla. La regla principal es que el archivo `.agents.md` (o `.instructions.md`) debe vivir directamente en la **raíz de tu repositorio**, asegurando que se suba al control de versiones (Git) y rija para todos los que clonen el proyecto.
+This methodology was not proposed through a universal web standard, but driven "de facto" by the creators of AI-powered IDEs themselves (like **GitHub Copilot, Cursor, Windsurf, and Devin**).
 
-Al estar en la raíz, sirve como un único punto de verdad agnóstico a la herramienta, evitando configurar múltiples archivos por cada IDE que use tu equipo.
+### The Problem
+By default, if you ask an AI in the editor to *"create an authentication controller"*, it will generate code based on the generic standard it learned from its training data. However, your company might require the use of a particular framework (e.g., *NestJS with dependency injection*), the exclusive use of `fetch` instead of `axios`, or an atypical folder hierarchy.
 
-### Ejemplo de Árbol de Directorios:
+### The Solution
+The practice of creating "pinned notes" or "System Prompt" files saved alongside the code (in the repository) was standardized so that any programmer on the team, upon opening the project with their AI, forces the agent to read the in-house rules and abide by those conventions.
+
+---
+
+## ⚙️ Use at the Architecture Level
+
+Its implementation is extremely simple. The main rule is that the `.agents.md` (or `.instructions.md`) file must live directly in the **root of your repository**, ensuring it is uploaded to version control (Git) and applies to everyone who clones the project.
+
+Being in the root serves as a single, tool-agnostic source of truth, avoiding the need to configure multiple files for each IDE your team uses.
+
+### Directory Tree Example:
 
 ```text
-/mi-proyecto
+/my-project
 ├── src/
 │   ├── index.js
 │   └── app.js
-├── .agents.md                     <-- (Reglas y directrices unificadas para el agente IA)
+├── .agents.md                     <-- (Unified rules and guidelines for the AI agent)
 ├── .gitignore
 ├── package.json
 └── README.md
 ```
 
-**Flujo de funcionamiento:**
-Cuando un desarrollador abre el proyecto y hace la primera pregunta en su chat, el agente escanea la raíz buscando el archivo `.agents.md`. El contenido del archivo entra invisiblemente al encabezado (*System Prompt*) de la conversación, afectando desde ese momento el código generado.
+**Operating Flow:**
+When a developer opens the project and asks the first question in their chat, the agent scans the root looking for the `.agents.md` file. The content of the file invisibly enters the header (*System Prompt*) of the conversation, affecting the generated code from that moment on.

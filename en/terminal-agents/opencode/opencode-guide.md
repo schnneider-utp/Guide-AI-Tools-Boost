@@ -1,57 +1,57 @@
 # 🚀 OpenCode (Open-Source AI Agent)
 
-OpenCode es una aproximación de código abierto orientada a equiparar o seguir los pasos de agentes de ingeniería autónomos (como Devin). A diferencia de una simple CLI que solo procesa texto, OpenCode es un **agente completo de resolución de problemas**, capaz de ver tu editor, crear carpetas, instalar dependencias, ejecutar scripts y corregir sus propios errores corriendo directamente desde tu terminal.
+OpenCode is an open-source approach aimed at matching or following in the footsteps of autonomous engineering agents (like Devin). Unlike a simple CLI that only processes text, OpenCode is a **complete problem-solving agent**, capable of seeing your editor, creating folders, installing dependencies, executing scripts, and correcting its own errors by running directly from your terminal.
 
-> 💰 **Capa Gratuita y Libertad de Modelos:** El mayor diferencial de este proyecto es que no te restringe a un modelo único de pago. OpenCode ofrece una **capa gratuita enormemente generosa** donde puedes elegir entre múltiples modelos de vanguardia (LLMs) para que actúen como el cerebro de tu agente. **Recomendación Principal:** Utiliza el modelo **MiniMax**, ya que otorga el mejor balance coste-rendimiento en su capa gratuita para operaciones de código complejas.
+> 💰 **Free Tier and Model Freedom:** The biggest differentiator of this project is that it does not restrict you to a single paid model. OpenCode offers an **enormously generous free tier** where you can choose between multiple cutting-edge models (LLMs) to act as your agent's brain. **Main Recommendation:** Use the **MiniMax** model, as it provides the best cost-performance balance in its free tier for complex coding operations.
 
-**Recursos Oficiales:**
-- 📘 [Página Principal del Proyecto](https://opencode.ai)
-- 💻 [Repositorio Oficial en GitHub](https://github.com/anomalyco/opencode)
-- 🎥 [Video Educativo sobre OpenCode (en Español)](https://www.youtube.com/watch?v=2gO8WyctqMk)
-- 🎥 [Video Educativo sobre OpenCode (en Inglés)](https://www.youtube.com/watch?v=e9j2iEwJru0)
+**Official Resources:**
+- 📘 [Project Main Page](https://opencode.ai)
+- 💻 [Official GitHub Repository](https://github.com/anomalyco/opencode)
+- 🎥 [Educational Video on OpenCode (in Spanish)](https://www.youtube.com/watch?v=2gO8WyctqMk)
+- 🎥 [Educational Video on OpenCode (in English)](https://www.youtube.com/watch?v=e9j2iEwJru0)
 
 ---
 
-### **Requisitos e Instalación (vía npm y NVM):**
-Al igual que la gran mayoría del ecosistema actual de agentes, está construido en Node.js. Como buena práctica, instalarlo a nivel global usando NPM debe hacerse mediante NVM para evitar fallos de permisos raíz:
+### **Requirements and Installation (via npm and NVM):**
+Like the vast majority of the current agent ecosystem, it is built on Node.js. As a best practice, installing it globally using NPM should be done via NVM to avoid root permission failures:
 
 ```bash
-# Instalación global a través de NPM
+# Global installation via NPM
 npm i -g opencode-ai
 ```
 
 ---
 
-## **¿Cómo Iniciar el Agente?**
+## **How to Start the Agent?**
 
-A diferencia de llamadas de un solo uso, con OpenCode habitualmente levantarás una terminal completa dedicada a él. Únicamente debes correr este comando en la raíz de tu proyecto:
+Unlike one-off calls, with OpenCode you will usually bring up a complete terminal dedicated to it. You only need to run this command at the root of your project:
 
 ```bash
 opencode
 ```
-*(Iniciará el entorno principal donde puedes empezar a hablarle natural, darle indicaciones de tu proyecto y transicionar entre los diferentes modos).*
+*(It will start the main environment where you can start speaking to it naturally, give it directions for your project, and transition between the different modes).*
 
 ---
 
-## **Modos de Operación**
+## **Operation Modes**
 
-Al igual que otros agentes avanzados, OpenCode divide sus capacidades en diferentes modos cognitivos para asegurar procesos más controlables:
+Like other advanced agents, OpenCode divides its capabilities into different cognitive modes to ensure more controllable processes:
 
-1. **Modo Plan (Arquitectura):** Su objetivo es trazar una hoja de ruta antes de tocar una sola línea de código. En este modo, el agente lee el estado actual de tu proyecto, analiza el problema y te presenta un esquema de pasos. Es ideal para que tú valides la arquitectura antes de que comience a trabajar.
-2. **Modo Builder (Ejecución):** Una vez validado el plan (o si saltas directamente a construir), el agente asume el rol de ejecutor. En esta etapa posee total autonomía para ejecutar comandos de bash, escribir/borrar archivos, instalar dependencias por NPM y autocorregirse leyendo los errores (`stderr`) de la consola en tiempo real.
+1. **Plan Mode (Architecture):** Its goal is to draw a roadmap before touching a single line of code. In this mode, the agent reads the current state of your project, analyzes the problem, and presents you with an outline of steps. It is ideal for you to validate the architecture before it starts working.
+2. **Builder Mode (Execution):** Once the plan is validated (or if you jump straight to building), the agent assumes the role of executor. At this stage, it has full autonomy to execute bash commands, write/delete files, install dependencies via NPM, and auto-correct itself by reading console errors (`stderr`) in real-time.
 
 ---
 
-## **Comandos Interactivos y Configuración (/)**
+## **Interactive Commands and Configuration (/)**
 
-Dentro de la sesión interactiva, tienes control total sobre la IA a través de comandos directos usando la barra diagonal `/`:
+Within the interactive session, you have total control over the AI through direct commands using the forward slash `/`:
 
-- `/model`: Cambia al vuelo el motor de lenguaje que estás utilizando (ej. `/model minimax` o `/model gpt-4o`).
-- `/session`: Administra, crea, lista o cambia el contexto o historial temporal en caso de manejar diferentes tareas en paralelo en tu repositorio.
-- `/skills`: Aplica habilidades personalizadas (fragmentos con reglas e instrucciones de código expertas) para tareas muy de nicho.
-- `/mcp`: Interactúa de forma directa con servidores de contexto (Model Context Protocol), brindando herramientas para leer bases de datos, APIs de tickets u otros entornos locales en un entorno seguro.
+- `/model`: Change the language engine you are using on the fly (e.g., `/model minimax` or `/model gpt-4o`).
+- `/session`: Manage, create, list, or swap the context or temporary history in case you are handling different tasks in parallel in your repository.
+- `/skills`: Apply custom skills (snippets with expert code rules and instructions) for very niche tasks.
+- `/mcp`: Interact directly with context servers (Model Context Protocol), providing tools to read databases, ticketing APIs, or other local environments in a secure setting.
 
-### **Facilidad de Integración de Skills y MCPs**
-Una de las mayores ventajas arquitectónicas de OpenCode frente a alternativas de terminal más herméticas (como herramientas al estilo de Claude Code) es su **facilidad para escalar capacidades**. Gracias a que su diseño de sistema de archivos establece rutas o carpetas generalizadas estándar predecibles, basta con arrojar tus instrucciones (`.md`) o configuraciones MCP para que el entorno interactivo las absorba globalmente, evitando tener que configurar dependencias pesadas manualmente para personalizar al agente.
+### **Ease of Integration for Skills and MCPs**
+One of the biggest architectural advantages of OpenCode compared to tighter terminal alternatives (like Claude Code style tools) is its **ease of scaling capabilities**. Because its file system design establishes predictable, generalized standard paths or folders, you simply drop your instructions (`.md`) or MCP configurations for the interactive environment to absorb them globally, avoiding having to manually configure heavy dependencies to customize the agent.
 
-> **Consejo de Seguridad 💡**: Debido a la altísima autonomía del agente (especialmente en Modo Builder, donde puede sobrescribir archivos del disco), asegúrate siempre de tener tu control de versiones limpio y actualizado (`git commit`) en la ruta raíz. Esto te permitirá hacer un simple `git revert` sin dolor de cabeza si llega a ocurrir un accidente de código masivo.
+> **Security Tip 💡**: Due to the agent's extremely high autonomy (especially in Builder Mode, where it can overwrite files on the disk), always make sure to have your version control clean and updated (`git commit`) in the root path. This will allow you to do a simple `git revert` without a headache if a massive code accident happens.

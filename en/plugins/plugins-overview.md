@@ -1,22 +1,22 @@
-# Introducción a los Plugins para Agentes de Inteligencia Artificial
+# Introduction to Plugins for Artificial Intelligence Agents
 
-Los plugins o complementos son extensiones que permiten a los agentes de Inteligencia Artificial (IA) interactuar con herramientas, bases de datos y sistemas externos. Por defecto, los modelos de lenguaje grandes (LLMs) operan en un entorno aislado, lo que significa que su conocimiento está limitado a la información con la que fueron entrenados y no pueden realizar acciones directas en el mundo real o en el entorno local del usuario. 
+Plugins or add-ons are extensions that allow Artificial Intelligence (AI) agents to interact with external tools, databases, and systems. By default, large language models (LLMs) operate in an isolated environment, meaning their knowledge is limited to the information they were trained on, and they cannot perform direct actions in the real world or the user's local environment.
 
-La integración de plugins resuelve esta limitación proporcionando un puente entre la lógica del de la IA y los recursos externos, permitiendo que el agente:
-- **Ejecute acciones:** Leer o modificar archivos locales, hacer consultas a una base de datos o interactuar con APIs externas (como GitHub, Slack o servicios en la nube).
-- **Consuma contexto dinámico:** Acceder a información en tiempo real, proporcionando respuestas más precisas y adaptadas al entorno de trabajo actual.
-- **Especialice su comportamiento:** Adoptar roles específicos y seguir metodologías de codificación predefinidas mediante instrucciones personalizadas.
+The integration of plugins solves this limitation by providing a bridge between the AI's logic and external resources, allowing the agent to:
+- **Execute actions:** Read or modify local files, query a database, or interact with external APIs (like GitHub, Slack, or cloud services).
+- **Consume dynamic context:** Access real-time information, providing more accurate responses adapted to the current work environment.
+- **Specialize its behavior:** Adopt specific roles and follow predefined coding methodologies through custom instructions.
 
-Al estructurar estas integraciones, se logra que la IA actúe no solo como un asistente conversacional, sino como una herramienta práctica e integrada en el flujo de desarrollo.
+By structuring these integrations, the AI acts not just as a conversational assistant, but as a practical tool integrated into the development workflow.
 
 ---
 
-## Índice Temático
+## Thematic Index
 
-A continuación, se exploran las dos categorías principales de integración de funcionalidades adicionales para agentes de desarrollo:
+Below, we explore the two main categories of integrating additional functionalities for development agents:
 
-### 1. [Model Context Protocol (MCP)](mcp-server/)
-El MCP (Model Context Protocol) es una tecnología estandarizada ideada para establecer comunicaciones seguras entre los modelos de IA y las fuentes de datos locales o herramientas externas. En esta sección se aborda cómo funcionan los servidores MCP, su arquitectura y cómo permiten a la IA interactuar directamente con el entorno local o plataformas de terceros (bases de datos, repositorios, etc.).
+### 1. [Model Context Protocol (MCP)](mcp-server/mcp-overview.md)
+MCP (Model Context Protocol) is a standardized technology designed to establish secure communications between AI models and local data sources or external tools. This section covers how MCP servers work, their architecture, and how they allow the AI to interact directly with the local environment or third-party platforms (databases, repositories, etc.).
 
-### 2. [Skills (Habilidades Personalizadas)](skills/)
-Las "Skills" son conjuntos de instrucciones estructuradas que especializan el comportamiento de un agente para tareas concretas y repetitivas. En lugar de establecer conexiones con sistemas externos, las Skills definen reglas, estándares y mejores prácticas de programación que el agente debe seguir al generar u optimizar código. En esta sección se explora su estructura, su funcionamiento y cómo implementarlas.
+### 2. [Skills (Custom Abilities)](skills/skills-overview.md)
+"Skills" are sets of structured instructions that specialize an agent's behavior for specific, repetitive tasks. Instead of establishing connections with external systems, Skills define rules, standards, and programming best practices that the agent must follow when generating or optimizing code. This section explores their structure, how they work, and how to implement them.

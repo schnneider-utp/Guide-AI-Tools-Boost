@@ -1,38 +1,38 @@
 # 💻 Terminal AI Agents
 
-> Los agentes de IA en la terminal son herramientas diseñadas para traer el contexto y el poder analítico de los grandes modelos de lenguaje (LLMs) directamente a tu consola. 
+> Terminal AI agents are tools designed to bring the context and analytical power of large language models (LLMs) directly to your console. 
 
-Entender qué son estos mecanismos es sencillo: en lugar de copiar errores de tu terminal y pegarlos en ChatGPT (o en el navegador), o escribir manualmente comandos abstractos, los Agentes de Terminal viven en tu shell de comandos. *Escuchan, leen logs, pueden ejecutar herramientas analíticas y sugieren o ejecutan comandos correctos en milisegundos.*
-
----
-
-## 🛠️ Requisitos (Node.js)
-
-Para que la gran mayoría de estos agentes de terminal funcionen, el requisito fundamental es tener instalado **Node.js** en tu sistema. Al instalar Node, también obtienes automáticamente **NPM** (Node Package Manager). NPM es el gestor de paquetes desde donde descargaremos e instalaremos las utilidades de consola (CLI) de estas herramientas de IA.
-
-💡 **Pro Tip: Instala Node usando [NVM (Node Version Manager)](https://github.com/nvm-sh/nvm)**
-
-El método tradicional es descargar el instalador oficial desde la página de Node.js, pero **no te lo recomendamos**. Instalar Node directamente a nivel del sistema suele causar dolores de cabeza con los permisos, especialmente cuando intentamos instalar agentes o herramientas de forma global (usando la bandera `-g` en npm), arrojando bloqueos o errores de "Acceso Denegado".
-
-Para una instalación profesional, limpia y sin fricciones, lo ideal es usar **[NVM](https://github.com/nvm-sh/nvm)** (o `nvm-windows` si estás en Windows):
-
-1. **¿Qué es exactamente?** NVM es un administrador que encapsula e instala Node.js exclusivamente en el espacio de trabajo de tu usuario.
-2. **Cero problemas de permisos:** Como todo vive en tu entorno de usuario, podrás ejecutar instalaciones globales (ej. `npm install -g @google/gemini-cli`) sin requerir permisos de administrador.
-3. **Control total de versiones:** NVM te permite instalar varias versiones de Node en tu misma PC y saltar de una a otra en cuestión de segundos con un simple comando (por ejemplo, `nvm use 20` a `nvm use 22`).
-
-*Asegúrate de tener NVM configurado y usa una versión estable de Node (LTS) antes de instalar los agentes que te mostramos a continuación.*
+Understanding what these mechanisms are is simple: instead of copying errors from your terminal and pasting them into ChatGPT (or a browser), or manually typing abstract commands, Terminal Agents live in your command shell. *They listen, read logs, can execute analytical tools, and suggest or execute correct commands in milliseconds.*
 
 ---
 
-## 🗺️ Índice de Agentes por Terminal
+## 🛠️ Requirements (Node.js)
 
-Hemos separado la documentación de cada herramienta en su propio módulo y archivo de instrucciones. Ingresa a la que desees configurar:
+For the vast majority of these terminal agents to work, the fundamental requirement is to have **Node.js** installed on your system. By installing Node, you also automatically get **NPM** (Node Package Manager). NPM is the package manager from which we will download and install the command-line interface (CLI) utilities of these AI tools.
+
+💡 **Pro Tip: Install Node using [NVM (Node Version Manager)](https://github.com/nvm-sh/nvm)**
+
+The traditional method is to download the official installer from the Node.js website, but **we do not recommend it**. Installing Node directly at the system level usually causes permission headaches, especially when trying to install agents or tools globally (using the `-g` flag in npm), throwing locks or "Access Denied" errors.
+
+For a professional, clean, and frictionless installation, the ideal is to use **[NVM](https://github.com/nvm-sh/nvm)** (or `nvm-windows` if you are on Windows):
+
+1. **What exactly is it?** NVM is a manager that encapsulates and installs Node.js exclusively in your user's workspace.
+2. **Zero permission problems:** Since everything lives in your user environment, you can run global installations (e.g., `npm install -g @google/gemini-cli`) without requiring administrator privileges.
+3. **Total version control:** NVM allows you to install several versions of Node on the same PC and jump from one to another in a matter of seconds with a simple command (for example, from `nvm use 20` to `nvm use 22`).
+
+*Make sure you have NVM configured and use a stable version of Node (LTS) before installing the agents shown below.*
+
+---
+
+## 🗺️ Terminal Agents Index
+
+We have separated the documentation for each tool into its own module and instruction file. Access the one you wish to configure:
 
 ### 1. [🤖 GitHub Copilot CLI / SDK](./copilot-sdk/copilot-cli-docs.md)
-Herramienta oficial desarrollada por **GitHub (Microsoft)** desde su laboratorio de innovación *GitHub Next*. Es un cliente de consola impulsado por los modelos de OpenAI que traslada la arquitectura de su popular asistente directamente a la shell nativa del sistema operativo.
+Official tool developed by **GitHub (Microsoft)** from its innovation lab *GitHub Next*. It is a console client powered by OpenAI models that brings the architecture of its popular assistant directly to the operating system's native shell.
 
 ### 2. [✨ Gemini CLI](./gemini-cli/gemini-setup.md)
-Un cliente de línea de comandos desarrollado y respaldado por **Google**. Funciona mediante un entorno de paquetes de Node.js (vía NPM) para interconectar la terminal directamente con la API fundacional de infraestructura de sus potentes modelos Gemini (Pro/Flash).
+A command-line client developed and backed by **Google**. It works through a Node.js package environment (via NPM) to interconnect the terminal directly with the foundational infrastructure API of its powerful Gemini models (Pro/Flash).
 
 ### 3. [🚀 OpenCode (Open-Source AI Agent)](./opencode/opencode-guide.md)
-Proyecto de software libre (**Open-Source**) impulsado por la comunidad de desarrolladores y construido sobre ecosistemas de **Python**. Es un framework de agente autónomo que, en lugar de actuar como un simple generador de texto, integra un sistema cognitivo que procesa, edita archivos y ejecuta rutinas emulando a soluciones corporativas privativas (como Devin).
+**Open-Source** software project driven by the developer community and built on **Python** ecosystems. It is an autonomous agent framework that, instead of acting as a simple text generator, integrates a cognitive system that processes, edits files, and executes routines, emulating proprietary enterprise solutions (like Devin).

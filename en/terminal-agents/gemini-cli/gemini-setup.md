@@ -1,60 +1,60 @@
 # ✨ Gemini CLI
 
-Un cliente de línea de comandos oficial desarrollado por Google para conectar tu terminal directamente con la familia de modelos Gemini. Dado que aprovecha las enormes ventanas de contexto de su infraestructura (como el modelo 1.5 Pro/Flash con más de 1 millón de tokens), es ideal para analizar masivas cantidades de logs, leer output de errores inmensos o buscar patrones en archivos pesados.
+An official command-line client developed by Google to connect your terminal directly with the Gemini model family. Since it leverages the enormous context windows of its infrastructure (like the 1.5 Pro/Flash model with over 1 million tokens), it is ideal for analyzing massive amounts of logs, reading huge error outputs, or finding patterns in heavy files.
 
-> 💰 **Capa Gratuita y Costos:** Aunque interactuar con las APIs base de los grandes modelos de lenguaje suele tener un precio, Gemini ofrece una **capa gratuita (Free Tier) sumamente generosa** mediante Google AI Studio, siendo más que suficiente para las necesidades y tareas diarias de la mayoría de los desarrolladores en local.
+> 💰 **Free Tier and Costs:** Although interacting with the base APIs of large language models usually has a price, Gemini offers a **highly generous Free Tier** through Google AI Studio, which is more than enough for the daily needs and tasks of most local developers.
 
-**Recursos Oficiales:**
-- 📘 [Página Principal del Proyecto](https://geminicli.com)
-- 💻 [Repositorio Oficial en GitHub](https://github.com/google-gemini/gemini-cli)
-- 🎥 [Video Educativo sobre Gemini CLI (en Español)](https://www.youtube.com/watch?v=Ib9f811Z5zg)
-- 🎥 [Video Educativo sobre Gemini CLI (en Inglés)](https://www.youtube.com/watch?v=WxXUbiz6RQE)
+**Official Resources:**
+- 📘 [Project Main Page](https://geminicli.com)
+- 💻 [Official GitHub Repository](https://github.com/google-gemini/gemini-cli)
+- 🎥 [Educational Video on Gemini CLI (in Spanish)](https://www.youtube.com/watch?v=Ib9f811Z5zg)
+- 🎥 [Educational Video on Gemini CLI (in English)](https://www.youtube.com/watch?v=WxXUbiz6RQE)
 
-### **Instalación (vía npm y NVM):**
-Debido a que utiliza dependencias globales, recomendamos usar NVM para la instalación en Windows evitando problemas de acceso.
+### **Installation (via npm and NVM):**
+Because it uses global dependencies, we recommend using NVM for installation on Windows avoiding access issues.
 
 ```bash
-# Instalación global a través de NPM
+# Global installation via NPM
 npm install -g @google/gemini-cli
 ```
 
-### **Autenticación (Cuenta Personal):**
-Para utilizar la herramienta, en lugar de manejar manualmente variables de entorno, puedes autenticarte rápidamente con tu propia cuenta de Google asociada al servicio de desarrollador:
+### **Authentication (Personal Account):**
+To use the tool, instead of manually handling environment variables, you can quickly authenticate with your own Google account associated with the developer service:
 
 ```bash
-# Iniciar flujo de autenticación en el navegador
+# Start authentication flow in the browser
 gemini login
 ```
-*(Al ejecutar esto, se abrirá una ventana en tu navegador para que inicies sesión en Google de forma segura y autorices la CLI en tu estación de trabajo).*
+*(Running this will open a window in your browser for you to securely log into Google and authorize the CLI on your workstation).*
 
 ---
 
-## **¿Cómo Iniciar el Agente?**
+## **How to Start the Agent?**
 
-Dependiendo de tus necesidades y flujo de trabajo, la CLI de Gemini te permite interactuar en dos formas sin salir de tu consola:
+Depending on your needs and workflow, the Gemini CLI allows you to interact in two ways without leaving your console:
 
-1. **Entorno Interactivo / Conversacional:** Si prefieres mantener un historial o charlar sobre un problema extenso en un entorno completo anclado a tu proyecto:
+1. **Interactive / Conversational Environment:** If you prefer to keep a history or chat about a long problem in a complete environment anchored to your project:
    ```bash
    gemini 
    ```
-2. **Llamadas Rápidas Únicas:** Ideal para automatizaciones, buscar algo rápido de comandos o encadenar resultados (*pipes*). No requiere iniciar un entorno sino decirle qué hacer directamente en el bash:
+2. **Single Quick Calls:** Ideal for automations, looking for a quick command, or chaining results (*pipes*). It does not require starting an environment but telling it what to do directly in bash:
    ```bash
-   gemini ask "¿Cómo busco un error específico en mis logs de Linux?"
+   gemini ask "How do I search for a specific error in my Linux logs?"
    ```
 
 ---
 
-## **Beneficios y Características Clave**
+## **Benefits and Key Features**
 
-Actualmente este cliente opera de una manera bastante directa e imperativa y, a diferencia de otros de la lista, por el momento no cuenta con modos complejos de planeación autónoma (Autopilot). Sin embargo, brilla en los siguientes escenarios:
+Currently, this client operates in a fairly direct and imperative manner and, unlike others on the list, for now, it does not have complex autonomous planning modes (Autopilot). However, it shines in the following scenarios:
 
-- **Contexto Inmenso:** Su principal fuerte es "ingerir" toneladas de texto (logs caóticos, volcados de memoria, lecturas de bases de datos completas).
-- **Interoperabilidad UNIX:** Está diseñado para ser un eslabón activo encadenado con otras salidas de la terminal a través de cañerías virtuales (*pipes*).
+- **Huge Context:** Its main strength is "ingesting" tons of text (chaotic logs, memory dumps, full database reads).
+- **UNIX Interoperability:** It is designed to be an active link chained with other terminal outputs through virtual pipes.
 
-### **Sesiones Interactivas y Cambio Rápido de Modelos (/)**
-Como te explicamos en la inicialización, si abres una terminal de conversación continua tecleando tan solo `gemini`, el agente te da acceso a comandos de configuración usando la diagonal `/`.
+### **Interactive Sessions and Quick Model Switching (/)**
+As explained in the initialization, if you open a continuous conversation terminal by simply typing `gemini`, the agent gives you access to configuration commands using the forward slash `/`.
 
-Si quieres poner el modelo en **su estado más rápido**, puedes cambiar explícitamente hacia la versión *Flash* (que consume menos tokens, resuelve en milisegundos y suele ser la más recomendable para la shell):
+If you want to put the model in **its fastest state**, you can explicitly switch to the *Flash* version (which consumes fewer tokens, resolves in milliseconds, and is usually the most recommended for the shell):
 ```
 /model gemini-1.5-flash
 ````
