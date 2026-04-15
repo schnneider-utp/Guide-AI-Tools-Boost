@@ -26,13 +26,13 @@ Estudio de interfaces conversacionales y agentes autónomos integrados a nivel d
 - Integraciones basadas en API (Google Gemini CLI, GitHub Copilot SDK).
 - Marcos de agentes autónomos y de múltiples modelos (OpenCode).
 
-### 2. ⚡ [Potenciadores: MCPs y Skills](./plugins/README.md)
+### 2. ⚡ [Potenciadores: MCPs y Skills](./plugins/plugins-overview.md)
 Expande las capacidades nativas de tus IAs mediante integraciones de contexto.
 - ¿Qué es el Model Context Protocol (MCP)?
 - Integración de Skills específicas para automatizar tareas repetitivas.
 - Flujos de trabajo personalizados.
 
-### 3. 📄 [Documentación Optimizada para IA](./docs-for-ai/README.md)
+### 3. 📄 [Documentación Optimizada para IA](./docs-for-ai/docs-for-ai-overview.md)
 Haz que tus agentes lean páginas y proyectos a la velocidad de la luz.
 - Evitando el Web Scraping lento con el estándar `llms.txt`.
 - Uso de archivos `.agents.md` e `.instructions.md`.

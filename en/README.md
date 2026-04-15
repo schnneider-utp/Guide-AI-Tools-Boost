@@ -1,44 +1,44 @@
 <div align="center">
   <h1>🚀 Guide-AI-Tools-Boost</h1>
-  <p><strong>Guía técnica para el estudio, configuración e integración de agentes y herramientas de Inteligencia Artificial en flujos de desarrollo.</strong></p>
+  <p><strong>Technical guide for the study, configuration, and integration of AI agents and tools in development workflows.</strong></p>
   
-  [![Estado: Activo](https://img.shields.io/badge/Estado-Activo-success.svg)](#)
-  [![IA: Potenciada](https://img.shields.io/badge/IA-Potenciada-ff69b4.svg)](#)
+  [![Status: Active](https://img.shields.io/badge/Status-Active-success.svg)](#)
+  [![AI: Powered](https://img.shields.io/badge/AI-Powered-ff69b4.svg)](#)
 </div>
 
 ---
 
-## 📖 Resumen General y Contexto
+## 📖 General Overview and Context
 
-**Guide-AI-Tools-Boost** es un proyecto enfocado en investigar, documentar y centralizar metodologías para la adopción e integración de herramientas de Inteligencia Artificial en la ingeniería de software. Ante la rápida proliferación de utilidades basadas en Grandes Modelos de Lenguaje (LLMs), el propósito de este repositorio es proveer un espacio de estudio sólido sobre cómo estas tecnologías operan e interactúan a nivel de sistema.
+**Guide-AI-Tools-Boost** is a project focused on researching, documenting, and centralizing methodologies for the adoption and integration of Artificial Intelligence tools in software engineering. Given the rapid proliferation of utilities based on Large Language Models (LLMs), the purpose of this repository is to provide a solid study space on how these technologies operate and interact at the system level.
 
-El material expuesto en este directorio trasciende el simple listado de utilidades comerciales; se concentra en los mecanismos técnicos necesarios para dotar a los modelos de lenguaje de contextos de alta calidad. Se abordan áreas metodológicas clave como: el despliegue nativo de agentes autónomos en línea de comandos, el *Model Context Protocol* (MCP), el desarrollo jerárquico de *Skills* de dominio específico y los estándares de formateo estructural para optimizar la indexación robótica (como `llms.txt`).
+The material presented in this directory goes beyond a simple list of commercial utilities; it focuses on the technical mechanisms necessary to provide language models with high-quality context. It addresses key methodological areas such as: native deployment of autonomous command-line agents, the *Model Context Protocol* (MCP), hierarchical development of domain-specific *Skills*, and structural formatting standards to optimize robotic indexing (such as `llms.txt`).
 
 ---
 
-## 🗺️ Índice Interactivo (Directorio Temático)
+## 🗺️ Interactive Index (Thematic Directory)
 
-Explora las diferentes áreas de esta guía accediendo a cada uno de nuestros módulos especializados:
+Explore the different areas of this guide by accessing each of our specialized modules:
 
-### 1. 💻 [Agentes de IA en la Terminal](./terminal-agents/terminal-agents-overview.md)
-Estudio de interfaces conversacionales y agentes autónomos integrados a nivel de shell del sistema. Se analiza su funcionamiento técnico y casos de uso en el ciclo de desarrollo.
-- Principios de operación y requisitos de entorno seguro (uso de NVM).
-- Integraciones basadas en API (Google Gemini CLI, GitHub Copilot SDK).
-- Marcos de agentes autónomos y de múltiples modelos (OpenCode).
+### 1. 💻 [AI Agents in the Terminal](./terminal-agents/terminal-agents-overview.md)
+Study of conversational interfaces and autonomous agents integrated at the system shell level. We analyze their technical operation and use cases in the development cycle.
+- Operational principles and safe environment requirements (using NVM).
+- API-based integrations (Google Gemini CLI, GitHub Copilot SDK).
+- Autonomous and multi-model agent frameworks (OpenCode).
 
-### 2. ⚡ [Potenciadores: MCPs y Skills](./plugins/README.md)
-Expande las capacidades nativas de tus IAs mediante integraciones de contexto.
-- ¿Qué es el Model Context Protocol (MCP)?
-- Integración de Skills específicas para automatizar tareas repetitivas.
-- Flujos de trabajo personalizados.
+### 2. ⚡ [Enhancers: MCPs & Skills](./plugins/plugins-overview.md)
+Expand the native capabilities of your AIs through context integrations.
+- What is the Model Context Protocol (MCP)?
+- Integration of specific Skills to automate repetitive tasks.
+- Custom workflows.
 
-### 3. 📄 [Documentación Optimizada para IA](./docs-for-ai/README.md)
-Haz que tus agentes lean páginas y proyectos a la velocidad de la luz.
-- Evitando el Web Scraping lento con el estándar `llms.txt`.
-- Uso de archivos `.agents.md` e `.instructions.md`.
-- Mejores prácticas para redactar contexto amigable para Modelos de Lenguaje.
+### 3. 📄 [AI-Optimized Documentation](./docs-for-ai/docs-for-ai-overview.md)
+Make your agents read pages and projects at lightning speed.
+- Avoiding slow Web Scraping with the `llms.txt` standard.
+- Using `.agents.md` and `.instructions.md` files.
+- Best practices for writing LLM-friendly context.
 
 ---
 <div align="center">
-  <i>Espacio dedicado al aprendizaje y estudio técnico de arquitecturas de IA aplicada. 📚</i>
+  <i>Space dedicated to the learning and technical study of applied AI architectures. 📚</i>
 </div>
