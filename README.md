@@ -4,8 +4,8 @@ Welcome to the Guide AI Tools Boost! This repository contains architectural and 
 
 Please select your preferred language to read the guide:
 
-* [🇪🇸 Leer la guía en Español (Spanish)](./es/)
-* [🇬🇧 Read the guide in English](./en/)
+* [🇪🇸 - Leer la guía en Español (Spanish)](./es/)
+* [🇬🇧 - Read the guide in English](./en/)
 
 ---
 ***
@@ -14,5 +14,5 @@ Bienvenido a Guide AI Tools Boost! Este repositorio contiene una guía arquitect
 
 Por favor, selecciona tu idioma preferido para leer la guía:
 
-* [🇪🇸 Leer la guía en Español](./es/README.md)
-* [🇬🇧 Read the guide in English (Inglés)](./en/README.md)
+* [🇪🇸 - Leer la guía en Español](./es/README.md)
+* [🇬🇧 - Read the guide in English (Inglés)](./en/README.md)
