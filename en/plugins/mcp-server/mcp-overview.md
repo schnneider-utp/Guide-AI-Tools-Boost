@@ -56,6 +56,15 @@ To dive deeper into the development and technical implementation of MCP, you can
 * **Official Documentation (Website):** [Model Context Protocol - Introduction](https://modelcontextprotocol.io/docs/getting-started/intro)
 * **GitHub Repository:** [Model Context Protocol Organization](https://github.com/modelcontextprotocol) - Here, progress, official SDKs (in TypeScript, Python, etc.), and community open-source servers are published.
 
+### 💡 Recommended MCP Servers
+
+Below, we present **MCP servers** you can integrate into your AI agent to expand its capabilities:
+
+* [**TestSprite**](./recommended-mcp-servers/testsprite/testsprite.md): MCP server specialized in **automated software testing** (unit, integration, and E2E), allowing your agent to autonomously run and generate tests.
+* [**Chrome DevTools**](./recommended-mcp-servers/chrome-devtools/chrome-devtools.md): Official Google MCP server to **control a live Chrome browser**, enabling browser automation, advanced debugging, and performance analysis.
+
+---
+
 ### 🎥 Recommended Videos
 
 If you prefer to learn visually or reinforce concepts, we recommend the following videos:
