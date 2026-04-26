@@ -58,6 +58,19 @@ Para explorar el directorio de habilidades públicas o revisar el código fuente
 
 > *"The open agent skills ecosystem."*
 
+## 💡 Skills Recomendadas
+
+A continuación, te presentamos algunas **Skills Recomendadas** que puedes integrar a tus proyectos para mejorar la calidad del código, las interfaces y la experiencia de usuario:
+
+* [**Interface Design**](./recommended-skills/interface-design/interface-design.md): Guía estructurada enfocada en la creación de interfaces de alta calidad ("craft"), diseño orientado a la intención y patrones únicos para dashboards y herramientas, evitando "defaults" genéricos.
+* [**UI/UX Pro Max**](./recommended-skills/ui-ux-pro-max/ui-ux-pro-max.md): Un sistema de inteligencia de diseño exhaustivo con decenas de estilos, tipografías y reglas de accesibilidad críticas listas para aplicarse en cualquier stack de tecnología.
+* [**PDF Processing**](./recommended-skills/pdf/pdf.md): Guía y mejores prácticas para extraer textos, manipular páginas y crear o llenar archivos PDF usando bibliotecas de Python y comandos de terminal.
+* [**Frontend Design**](./recommended-skills/frontend-design/frontend-design.md): Instrucciones enfocadas en la creación de interfaces de usuario creativas, atrevidas y memorables, evitando estéticas genéricas de IA (AI slop).
+* [**RAG Implementation**](./recommended-skills/rag-implementation/rag-implementation.md): Maestría en Generación Aumentada por Recuperación (RAG) para construir aplicaciones LLM conectadas a fuentes de conocimiento externas (bases de datos vectoriales).
+* [**JWT Security**](./recommended-skills/jwt-security/jwt-security.md): Directrices de seguridad y mejores prácticas para la implementación, estructuración, firma y almacenamiento seguro de tokens JWT (JSON Web Tokens).
+
+---
+
 ### 🎥 Videos Recomendados
 
 Para ver implementaciones en vivo y entender mejor el impacto de `skills.sh`, te sugerimos estos recursos en video:
