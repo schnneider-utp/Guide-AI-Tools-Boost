@@ -68,6 +68,7 @@ A continuación, te presentamos algunas **Skills Recomendadas** que puedes integ
 * [**Frontend Design**](./recommended-skills/frontend-design/frontend-design.md): Instrucciones enfocadas en la creación de interfaces de usuario creativas, atrevidas y memorables, evitando estéticas genéricas de IA (AI slop).
 * [**RAG Implementation**](./recommended-skills/rag-implementation/rag-implementation.md): Maestría en Generación Aumentada por Recuperación (RAG) para construir aplicaciones LLM conectadas a fuentes de conocimiento externas (bases de datos vectoriales).
 * [**JWT Security**](./recommended-skills/jwt-security/jwt-security.md): Directrices de seguridad y mejores prácticas para la implementación, estructuración, firma y almacenamiento seguro de tokens JWT (JSON Web Tokens).
+* [**GSAP Animation**](./recommended-skills/gsap/gsap.md): La guía oficial de GreenSock para implementar animaciones fluidas, declarativas y de alto rendimiento, incluyendo ScrollTrigger y otros plugins especializados.
 
 ---
 
