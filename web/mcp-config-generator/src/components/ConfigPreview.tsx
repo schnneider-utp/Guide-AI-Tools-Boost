@@ -92,8 +92,8 @@ export default function ConfigPreview({ result, onCopy, onSaveSuccess }: ConfigP
           <span className="check-icon">✓</span>
           <span>{result.serverNames.length} server(s) converted</span>
         </div>
-        <div style={{ display: 'flex', gap: '10px' }}>
-          <button className="copy-btn" onClick={handleSaveDirectly} disabled={saving} style={{ borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}>
+        <div className="preview-actions">
+          <button className="copy-btn save-btn" onClick={handleSaveDirectly} disabled={saving}>
             {saving ? 'Saving...' : '🚀 Save directly to OpenCode'}
           </button>
           <button className="copy-btn" onClick={handleCopy}>
@@ -113,14 +113,7 @@ export default function ConfigPreview({ result, onCopy, onSaveSuccess }: ConfigP
       </div>
       
       {saveResult && (
-        <div style={{ 
-          padding: '10px', 
-          marginBottom: '20px', 
-          borderRadius: 'var(--radius-sm)', 
-          background: saveResult.success ? 'rgba(0, 217, 126, 0.1)' : 'rgba(255, 71, 87, 0.1)',
-          color: saveResult.success ? 'var(--accent-primary)' : 'var(--error)',
-          fontSize: '0.85rem'
-        }}>
+        <div className={`save-result ${saveResult.success ? 'success' : 'error'}`}>
           {saveResult.message}
         </div>
       )}

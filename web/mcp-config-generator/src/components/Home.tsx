@@ -64,21 +64,27 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="content-section">
-        <ConfigInput 
-          onConvert={handleConvert} 
-          exampleJson={EXAMPLE_JSON}
-        />
-        
-        {showPreview && (
-          <ConfigPreview 
-            result={result} 
-            onCopy={handleCopy}
-            onSaveSuccess={() => setRefreshTrigger(prev => prev + 1)}
+      <section className="workspace-grid">
+        <div className="workspace-column workspace-left">
+          <ConfigInput
+            onConvert={handleConvert}
+            exampleJson={EXAMPLE_JSON}
           />
-        )}
-        
-        <InstalledServers refreshTrigger={refreshTrigger} />
+        </div>
+
+        <div className="workspace-column workspace-right">
+          <div className="workspace-panel workspace-preview-panel">
+            <ConfigPreview
+              result={showPreview ? result : null}
+              onCopy={handleCopy}
+              onSaveSuccess={() => setRefreshTrigger((prev) => prev + 1)}
+            />
+          </div>
+
+          <div className="workspace-panel workspace-installed-panel">
+            <InstalledServers refreshTrigger={refreshTrigger} />
+          </div>
+        </div>
       </section>
 
       <footer className="footer">

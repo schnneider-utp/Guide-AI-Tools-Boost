@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 
 interface InstalledServer {
   type: string;
-  command: string[];
+  command: string[] | string;
   enabled?: boolean;
 }
 
@@ -15,12 +15,15 @@ export default function InstalledServers({ refreshTrigger }: InstalledServersPro
   const [servers, setServers] = useState<Record<string, InstalledServer>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [busyServer, setBusyServer] = useState<string | null>(null);
+  const [actionMessage, setActionMessage] = useState<{ success: boolean; text: string } | null>(null);
   
   const containerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
   const fetchServers = async () => {
     setLoading(true);
+    setError('');
     try {
       const res = await fetch('/api/get-config');
       const data = await res.json();
@@ -33,6 +36,39 @@ export default function InstalledServers({ refreshTrigger }: InstalledServersPro
       setError((err as Error).message);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const openConfigFolder = async () => {
+    try {
+      const res = await fetch('/api/open-config-folder', { method: 'POST' });
+      const data = await res.json();
+      setActionMessage({ success: Boolean(data.success), text: data.message || 'No response message' });
+    } catch (err) {
+      setActionMessage({ success: false, text: (err as Error).message });
+    }
+  };
+
+  const deleteServer = async (serverName: string) => {
+    const confirmed = window.confirm(`Delete MCP server "${serverName}" from OpenCode config?`);
+    if (!confirmed) return;
+
+    setBusyServer(serverName);
+    try {
+      const res = await fetch('/api/delete-server', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ serverName })
+      });
+      const data = await res.json();
+      setActionMessage({ success: Boolean(data.success), text: data.message || 'No response message' });
+      if (data.success) {
+        await fetchServers();
+      }
+    } catch (err) {
+      setActionMessage({ success: false, text: (err as Error).message });
+    } finally {
+      setBusyServer(null);
     }
   };
 
@@ -59,40 +95,65 @@ export default function InstalledServers({ refreshTrigger }: InstalledServersPro
 
   const serverEntries = Object.entries(servers);
 
-  if (serverEntries.length === 0) {
-    return null; // Don't show anything if no servers are installed
-  }
-
   return (
     <div ref={containerRef} className="installed-servers-section">
       <div className="installed-header">
         <h2>🔌 Installed MCP Servers</h2>
-        <button className="refresh-btn" onClick={fetchServers} title="Refresh">
-          ↻
-        </button>
+        <div className="installed-actions">
+          <button className="refresh-btn open-folder-btn" onClick={openConfigFolder} title="Open MCP config folder">
+            Open folder
+          </button>
+          <button className="refresh-btn" onClick={fetchServers} title="Refresh">
+            ↻
+          </button>
+        </div>
       </div>
 
-      <div ref={cardsRef} className="servers-grid">
-        {serverEntries.map(([name, config]) => {
-          const isEnabled = config.enabled !== false; // true by default
-          const commandStr = config.command?.join(' ') || 'Unknown command';
-          
-          return (
-            <div key={name} className={`server-card ${isEnabled ? 'enabled' : 'disabled'}`}>
-              <div className="card-header">
-                <div className="card-title">
-                  <span className={`status-dot ${isEnabled ? 'active' : 'inactive'}`}></span>
-                  <h3 className="card-name">{name}</h3>
+      {actionMessage && (
+        <div className={`installed-action-message ${actionMessage.success ? 'success' : 'error'}`}>
+          {actionMessage.text}
+        </div>
+      )}
+
+      {serverEntries.length === 0 ? (
+        <div className="installed-servers-loading">
+          No MCP servers found in your local OpenCode config yet.
+        </div>
+      ) : (
+        <div ref={cardsRef} className="servers-grid">
+          {serverEntries.map(([name, config]) => {
+            const isEnabled = config.enabled !== false; // true by default
+            const commandStr = Array.isArray(config.command)
+              ? config.command.join(' ')
+              : config.command || 'Unknown command';
+
+            return (
+              <div key={name} className={`server-card ${isEnabled ? 'enabled' : 'disabled'}`}>
+                <div className="card-header">
+                  <div className="card-title">
+                    <span className={`status-dot ${isEnabled ? 'active' : 'inactive'}`}></span>
+                    <h3 className="card-name">{name}</h3>
+                  </div>
+                  <span className="card-type">{config.type}</span>
                 </div>
-                <span className="card-type">{config.type}</span>
+                <div className="card-body">
+                  <code className="card-command">{commandStr}</code>
+                </div>
+                <div className="card-footer-actions">
+                  <button
+                    type="button"
+                    className="delete-server-btn"
+                    onClick={() => deleteServer(name)}
+                    disabled={busyServer === name}
+                  >
+                    {busyServer === name ? 'Deleting...' : 'Delete'}
+                  </button>
+                </div>
               </div>
-              <div className="card-body">
-                <code className="card-command">{commandStr}</code>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
