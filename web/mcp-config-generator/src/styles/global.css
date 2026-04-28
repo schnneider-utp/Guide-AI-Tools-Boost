@@ -44,6 +44,36 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) var(--bg-primary);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3a3a44 0%, #2f2f38 100%);
+  border: 2px solid var(--bg-primary);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #4a4a56 0%, #3a3a44 100%);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--bg-primary);
+}
+
 body {
   background: 
     radial-gradient(ellipse at 20% 0%, rgba(0, 217, 126, 0.03) 0%, transparent 50%),
@@ -389,6 +419,8 @@ body {
   overflow-x: auto;
   flex: 1;
   min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) var(--bg-primary);
 }
 
 .code-output pre {
@@ -547,6 +579,8 @@ body {
   gap: 12px;
   overflow: auto;
   padding-right: 2px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) var(--bg-secondary);
 }
 
 .server-card {
