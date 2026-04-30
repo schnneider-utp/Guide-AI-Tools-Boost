@@ -6,13 +6,11 @@ import InstalledServers from './InstalledServers';
 import { convertToOpenCode, type ConversionResult } from '../utils/converter';
 
 const EXAMPLE_JSON = `{
-  "mcpServers": {
-    "TestSprite": {
-      "command": "npx",
-      "args": ["@testsprite/testsprite-mcp@latest"],
-      "env": {
-        "API_KEY": "your-api-key"
-      }
+  "mcp": {
+    "socraticode": {
+      "type": "local",
+      "command": ["npx", "-y", "socraticode"],
+      "enabled": true
     }
   }
 }`;

@@ -410,6 +410,38 @@ body {
   color: var(--text-primary);
 }
 
+.adjustments-list {
+  background: rgba(100, 149, 237, 0.1);
+  border: 1px solid rgba(100, 149, 237, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+}
+
+.adjustments-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6495ed;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.adjustments-icon {
+  font-size: 0.9rem;
+}
+
+.adjustments-list ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-secondary);
+}
+
+.adjustments-list li {
+  margin: 3px 0;
+}
+
 .code-output {
   background: var(--bg-primary);
   border: 1px solid var(--border-subtle);

@@ -7,6 +7,9 @@ interface MCPServerConfig {
   command: string | string[];
   args?: string[];
   env?: Record<string, string>;
+  type?: string;
+  enabled?: boolean;
+  environment?: Record<string, string>;
 }
 
 interface OpenCodeMCPConfig {
@@ -21,11 +24,13 @@ export interface ConversionResult {
   converted: Record<string, OpenCodeMCPConfig> | null;
   errors: string[];
   serverNames: string[];
+  adjustments: string[];
 }
 
 export function convertToOpenCode(inputJson: string): ConversionResult {
   const errors: string[] = [];
   const serverNames: string[] = [];
+  const adjustments: string[] = [];
   
   // Parse the input JSON
   let parsed: Record<string, unknown>;
@@ -53,11 +58,15 @@ export function convertToOpenCode(inputJson: string): ConversionResult {
   if (parsed.mcpServers && typeof parsed.mcpServers === 'object') {
     servers = parsed.mcpServers as Record<string, MCPServerConfig>;
   }
-  // Format 2: Just the server object directly with command
+  // Format 2: OpenCode format { mcp: { ... } }
+  else if (parsed.mcp && typeof parsed.mcp === 'object') {
+    servers = parsed.mcp as Record<string, MCPServerConfig>;
+  }
+  // Format 3: Just the server object directly with command
   else if (parsed.command && typeof parsed.command === 'string') {
     servers = { direct: parsed as unknown as MCPServerConfig };
   }
-  // Format 3: Look for any key that has command property
+  // Format 4: Look for any key that has command property
   else {
     for (const [key, value] of Object.entries(parsed)) {
       if (value && typeof value === 'object' && (value as Record<string, unknown>).command) {
@@ -112,6 +121,7 @@ export function convertToOpenCode(inputJson: string): ConversionResult {
     // Add -y flag if using npx
     if (commandArray[0] === 'npx' && !commandArray.includes('-y')) {
       commandArray.splice(1, 0, '-y');
+      adjustments.push(`Added -y flag to npx command for "${name}"`);
     }
 
     // Handle environment variables
@@ -119,12 +129,27 @@ export function convertToOpenCode(inputJson: string): ConversionResult {
     if (env && typeof env === 'object') {
       environment = env;
     }
+    if (serverConfig.environment && typeof serverConfig.environment === 'object') {
+      environment = serverConfig.environment;
+    }
+
+    // Get type or add default
+    const serverType = serverConfig.type || 'local';
+    if (!serverConfig.type) {
+      adjustments.push(`Added type: 'local' to "${name}"`);
+    }
+
+    // Get enabled or add default
+    const serverEnabled = serverConfig.enabled !== undefined ? serverConfig.enabled : true;
+    if (serverConfig.enabled === undefined) {
+      adjustments.push(`Added enabled: true to "${name}"`);
+    }
 
     converted[name] = {
-      type: 'local',
+      type: serverType,
       command: commandArray,
       ...(environment && { environment }),
-      enabled: true
+      enabled: serverEnabled
     };
     
     serverNames.push(name);
@@ -135,7 +160,8 @@ export function convertToOpenCode(inputJson: string): ConversionResult {
       success: false,
       converted: null,
       errors: errors.length > 0 ? errors : ['No valid MCP servers found in configuration'],
-      serverNames: []
+      serverNames: [],
+      adjustments: []
     };
   }
 
@@ -143,7 +169,8 @@ export function convertToOpenCode(inputJson: string): ConversionResult {
     success: true,
     converted,
     errors,
-    serverNames
+    serverNames,
+    adjustments
   };
 }
 

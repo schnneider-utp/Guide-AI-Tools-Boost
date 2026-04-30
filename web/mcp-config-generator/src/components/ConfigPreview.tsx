@@ -118,6 +118,20 @@ export default function ConfigPreview({ result, onCopy, onSaveSuccess }: ConfigP
         </div>
       )}
 
+      {result.adjustments && result.adjustments.length > 0 && (
+        <div className="adjustments-list">
+          <div className="adjustments-header">
+            <span className="adjustments-icon">🔧</span>
+            <span>Auto-adjustments applied:</span>
+          </div>
+          <ul>
+            {result.adjustments.map((adj, i) => (
+              <li key={i}>{adj}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <div className="server-list">
         {result.serverNames.map((name) => (
           <div key={name} className="server-item">
